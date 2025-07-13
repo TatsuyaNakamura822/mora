@@ -2,12 +2,13 @@ import { Sprite, Text } from '@pixi/react';
 import { TextStyle } from 'pixi.js';
 import words from '../data/words.json';
 import { CircleButton } from './CircleButton';
-import { useState } from 'react'; // useStateをインポート
+import { useState } from 'react';
+import React from 'react';
 
 export const GameScene = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [feedback, setFeedback] = useState(''); // 正誤判定のフィードバック
-  const [score, setScore] = useState(0); // スコア
+  const [feedback, setFeedback] = useState('');
+  const [score, setScore] = useState(0);
 
   const currentWord = words[currentWordIndex];
 
@@ -15,17 +16,14 @@ export const GameScene = () => {
     if (guess === currentWord.mora) {
       setFeedback('正解！');
       setScore(score + 1);
-      // 次の単語へ
       setTimeout(() => {
         setFeedback('');
         setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
       }, 1000);
     } else {
       setFeedback(`不正解... 正解は ${currentWord.mora} モーラでした。`);
-      // ゲームオーバーにするか、リトライさせるかなどのロジックを追加
       setTimeout(() => {
         setFeedback('');
-        // ここでゲームオーバー処理やリトライ処理を実装
         setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
       }, 2000);
     }
@@ -67,26 +65,30 @@ export const GameScene = () => {
         style={new TextStyle({ fontSize: 24, fill: '#000000' })}
       />
 
-      <>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CircleButton
-            key={index}
-            x={window.innerWidth / 2 - 240 + index * 120}
-            y={800}
-            radius={50}
-            color={0xaee1ff}
-            onClick={() => handleMoraGuess(index + 1)} // クリックされたボタンのモーラ数を渡す
-          >
+      {Array.from({ length: 5 }).map((_, index) => {
+        const buttonX = window.innerWidth / 2 - 240 + index * 120;
+        const buttonY = 800;
+        const moraNumber = index + 1;
+
+        return (
+          <React.Fragment key={index}>
+            <CircleButton
+              x={buttonX}
+              y={buttonY}
+              radius={50}
+              color={0xaee1ff}
+              onClick={() => handleMoraGuess(moraNumber)}
+            />
             <Text
-              text={(index + 1).toString()} // ボタンにモーラ数を表示
-              x={0}
-              y={0}
+              text={moraNumber.toString()}
+              x={buttonX}
+              y={buttonY}
               anchor={0.5}
               style={new TextStyle({ fontSize: 36, fill: '#000000' })}
             />
-          </CircleButton>
-        ))}
-      </>
+          </React.Fragment>
+        );
+      })}
     </>
   );
 };

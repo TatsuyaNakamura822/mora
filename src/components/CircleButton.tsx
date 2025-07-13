@@ -1,6 +1,5 @@
 import { Graphics } from '@pixi/react';
 import { useCallback } from 'react';
-import React from 'react'; // Reactをインポート
 
 interface CircleButtonProps {
   x: number;
@@ -8,10 +7,9 @@ interface CircleButtonProps {
   radius: number;
   color: number;
   onClick: () => void;
-  children?: React.ReactNode; // childrenプロパティを追加
 }
 
-export const CircleButton = ({ x, y, radius, color, onClick, children }: CircleButtonProps) => {
+export const CircleButton = ({ x, y, radius, color, onClick }: CircleButtonProps) => {
   const draw = useCallback(
     (g: any) => {
       g.clear();
@@ -22,9 +20,5 @@ export const CircleButton = ({ x, y, radius, color, onClick, children }: CircleB
     [x, y, radius, color]
   );
 
-  return (
-    <Graphics draw={draw} interactive={true} pointerdown={onClick}>
-      {children} {/* childrenをレンダリング */}
-    </Graphics>
-  );
+  return <Graphics draw={draw} interactive={true} pointerdown={onClick} />;
 };
