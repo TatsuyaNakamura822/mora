@@ -1,0 +1,22 @@
+[
+  { "id": "neko", "word": "ねこ", "mora": 2 },
+  { "id": "inu", "word": "いぬ", "mora": 2 },
+  { "id": "sakana", "word": "さかな", "mora": 3 },
+  { "id": "kuruma", "word": "くるま", "mora": 3 },
+  { "id": "ringo", "word": "りんご", "mora": 3 },
+  { "id": "banana", "word": "ばなな", "mora": 3 },
+  { "id": "mikan", "word": "みかん", "mora": 3 },
+  { "id": "densha", "word": "でんしゃ", "mora": 3 },
+  { "id": "hikouki", "word": "ひこうき", "mora": 4 },
+  { "id": "jitensha", "word": "じてんしゃ", "mora": 4 },
+  { "id": "shinkansen", "word": "しんかんせん", "mora": 5 },
+  { "id": "terebi", "word": "てれび", "mora": 3 },
+  { "id": "rajio", "word": "らじお", "mora": 3 },
+  { "id": "kamera", "word": "かめら", "mora": 3 },
+  { "id": "megane", "word": "めがね", "mora": 3 },
+  { "id": "tokei", "word": "とけい", "mora": 3 },
+  { "id": "pen", "word": "ぺん", "mora": 2 },
+  { "id": "hon", "word": "ほん", "mora": 2 },
+  { "id": "tsukue", "word": "つくえ", "mora": 3 },
+  { "id": "isu", "word": "いす", "mora": 2 }
+]
