@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+  pages: write # GitHub Pagesを使用している場合
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
