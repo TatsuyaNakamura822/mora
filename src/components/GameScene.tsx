@@ -2,7 +2,7 @@ import { Sprite, Text } from '@pixi/react';
 import { TextStyle } from 'pixi.js';
 import words from '../data/words.json';
 import { CircleButton } from './CircleButton';
-import { useState, useEffect } from 'react'; // useStateとuseEffectをインポート
+import { useState } from 'react'; // useStateをインポート
 
 export const GameScene = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
